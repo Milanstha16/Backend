@@ -6,8 +6,10 @@ const dotenv = require('dotenv');
 
 dotenv.config();
 const app = express();
+app.use(express.json());
 
 connectDB();
+app.use("/api/auth", require ("./routes/userRoutes"));
 const PORT = process.env.PORT ;
 
 app.get('/', (req, res) => {
